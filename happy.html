@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 	<title>爱心</title>
 	<style>
 		*{margin:0; padding:0;}
-		body{ background-color: #BBFFFF; 		}
+		body{ background-color: #BBFFFF;}
+		h2{text-align: center;padding:5px;}
 	</style>
 </head>
 <body>
@@ -70,9 +72,13 @@
 				return '阿波';
 			} else if(val > 3 && val <= 5){
 				return '深爱';
-			} else if(val > 5 && val <= 8){
+			} else if(val > 5 && val <=7){
 				return '梦梦';
-			} else{
+			}else if(val >7 && val <= 8){
+				return '遇见你我才发现,当年高考做错的题';
+			}else if(val >8 && val <=9){
+				return '错的刚刚好';
+			}else{
 				return 'I Love You';
 			}
 		}
