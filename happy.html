@@ -46,7 +46,7 @@
 
 		document.addEventListener('WeixinJSBridgeReady', function() {
 
-			//WeixinJSBridge.call('hideToolbar');
+			WeixinJSBridge.call('hideToolbar');
 
 		});
 
@@ -168,159 +168,75 @@
 <script type="text/javascript" src="js/bi_post_min.js"></script><script type="text/javascript">
 
 	window.onload = function() {
-
 		$audio = $("audio");
-
 		if ($audio.length>0) {
-
 			$audio.attr("src", $audio.data("src"));
-
 			$audio.parent("a").prepend('<i class="icon-music"></i>');
-
 		}
 
 	};
 
 	bi.ready(function(){
-
 		var link = window.location.href;
-
-
-
 		var uid = bi.util.getUID();
-
 		var sf = '';
-
-
-
 		var activity_id = link.match(/\/([0-9]+)\?/)[1];
-
 		var sfstr = link.match(/\?sf=([^&]+)[&]?/);
-
 		if(sfstr){
-
 			sf = sfstr[1];
-
 			var newlink = link.replace(/(\?)sf=[^&]+[&]?/,'$1');
-
 		}else{
-
 			var newlink = link;
-
 		}
-
 	    var	linkArr = newlink.split('?');
-
-
-
 	    var shareLink = linkArr[0]+'?sf='+uid+'&'+linkArr[1];
-
 	    var biLink = linkArr[0]+'?uid='+uid+'&'+linkArr[1];
-
-
-
     	bi.weixin.share.all({
-
 			link:shareLink
-
 		});
-
-		
-
 		bi.weixin.ready(function(){
-
-			bi.weixin.onShare(function (e) {
-
+			bi.weixin.onShare(function (e){
 				bi.push(5, 'link', biLink);
-
 				bi.push(5, 'activity_id', activity_id);
-
 				if(sf){
-
 					bi.push(5, 'sf', sf);
-
 				}
-
 				bi.push(5, 'type', 'shareTimeline');
-
 				bi.push(5, 'stime', bi.util.getSTime());
-
 				bi.push(5, 'uid', uid);
-
 				//alert(JSON.stringify(bi.get(5)));			
-
 				bi.post();
-
 			}, 'shareTimeline');
-
-
-
-			bi.weixin.onShare(function (e) {
-
+			bi.weixin.onShare(function (e){
 				bi.push(5, 'link', biLink);
-
 				bi.push(5, 'activity_id', activity_id);
-
 				if(sf){
-
 					bi.push(5, 'sf', sf);
-
 				}
-
 				bi.push(5, 'type', 'sendAppMessage');
-
 				bi.push(5, 'stime', bi.util.getSTime());
-
 				bi.push(5, 'uid', uid);
-
 				//alert(JSON.stringify(bi.get(5)));
-
 				bi.post();
-
 			}, 'sendAppMessage');			
-
 		});
-
-		
-
 		var time = new Date;
-
 		var start = time.getTime();
-
 		var prevPage = 1;
-
 	    $('.page').on('current', function(){
-
 			var now = new Date;
-
 			var end = now.getTime();
-
 			var rt = end - start;
-
-
-
 	        bi.push(4, 'link' ,link);
-
 	        bi.push(4, 'pvid' , "v1hpecoi5fdq28vu1ulgv9afk5");
-
 	        bi.push(4, 'stime', start);
-
 	        bi.push(4, 'rt' ,rt);
-
 	        bi.push(4, 'pnum', prevPage);
-
 	        bi.push(4, 'pstime', start);
-
 	        bi.push(4, 'activity_id', activity_id);
-
 	        bi.post();
-
-
-
 			prevPage = $('.page').filter('.z-current').index()+1;
-
 			start = end;
-
 	   });
 
 	});
