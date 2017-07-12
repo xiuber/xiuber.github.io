@@ -12,7 +12,7 @@ section{width:100%;margin:0 auto;}
 .logo_text2{font-size: 14px;}
 .aticle-title{text-align: center;font-size: 20px;color:#222222;margin-top: 30px;font-weight:bolder;}
 .aticle-time{font-size: 14px;text-align: center;margin-top:10px;}
-.aticle-cont{margin-top: 20px;padding-left: 10px;}
-.aticle-cont p{line-height: 27px;margin: 15px 0px;}
+.aticle-cont{margin-top: 20px;padding: 0px 10px;}
+.aticle-cont p{line-height: 27px;margin: 15px 0px;text-align: justify;}
 .aticle-cont p img{width:100%;text-indent: 0px;}
 .slimScrollBar{opacity: 0!important;}
