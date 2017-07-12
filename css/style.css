@@ -17,3 +17,18 @@ section{width:100%;margin:0 auto;}
 .aticle-cont p img{width:100%;text-indent: 0px;}
 .slimScrollBar{opacity: 0!important;}
 blockquote{padding: 10px;background-color: #222222;color: #ffffff;}
+/*blockquote {
+background:#f9f9f9;
+border-left:10px solid #ccc;
+margin:1.5em 10px;
+padding:.5em 10px;
+quotes:"\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+color:#ccc;
+content:open-quote;
+font-size:4em;
+line-height:.1em;
+margin-right:.25em;
+vertical-align:-.4em;
+}*/
