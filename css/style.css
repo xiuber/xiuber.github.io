@@ -16,3 +16,4 @@ section{width:100%;margin:0 auto;}
 .aticle-cont p{line-height: 27px;margin: 15px 0px;text-align: justify;}
 .aticle-cont p img{width:100%;text-indent: 0px;}
 .slimScrollBar{opacity: 0!important;}
+blockquote{padding: 10px;background-color: #222222;color: #ffffff;}
