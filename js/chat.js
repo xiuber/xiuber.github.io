@@ -4,6 +4,11 @@ function send(headSrc,str){
 	"<p><i class='msg_input'></i>"+str+"</p></div></div>";
 	upView(html);
 }
+function send2(headSrc,str){
+	var html="<div class='send'><div class='msg'><img src="+headSrc+" />"+
+	"<p><i class='msg_input'></i><a href="+str+">"+str+"</a></p></div></div>";
+	upView(html);
+}
 /*接受消息*/
 function show(headSrc,str){
 	var html="<div class='show'><div class='msg'><img src="+headSrc+" />"+
@@ -47,9 +52,11 @@ $(function(){
 		      	userid:"123456"
 		      },
 		      success: function (data) {
+		      	console.log(data);
 		      	arr=[];
 			    arr.push(data.text);
-			    console.log(arr);
+			    arr.push(data.url);
+			    
 				show("./images/touxiangm.png",$(".footer input").val());
 				test();		
 				$(".footer input").val("");//清空input
@@ -66,5 +73,11 @@ function test(){
 	setTimeout(function(){
 		send("images/touxiang.png",arr[0])
 	},1000)
+
+	if(arr[1]!=undefined){
+		setTimeout(function(){
+			send2("images/touxiang.png",arr[1])
+		},1000)
+	}
 	
 }
